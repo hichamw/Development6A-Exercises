@@ -43,6 +43,7 @@ namespace EntryPoint
             foreach (var i in specialBuildings) {
                 distancesList.Add(Math.Sqrt(Math.Pow((house.X - i.X), 2) + Math.Pow((house.Y - i.Y), 2)));
             }
+            //TODO merge sort algorithm invoeren en returnen net als de volgende line
             return specialBuildings.OrderBy(v => Vector2.Distance(v, house));
     }
 
