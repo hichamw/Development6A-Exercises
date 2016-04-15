@@ -39,7 +39,11 @@ namespace EntryPoint
 
     private static IEnumerable<Vector2> SortSpecialBuildingsByDistance(Vector2 house, IEnumerable<Vector2> specialBuildings)
     {
-      return specialBuildings.OrderBy(v => Vector2.Distance(v, house));
+            List<double> distancesList = new List<double>();
+            foreach (var i in specialBuildings) {
+                distancesList.Add(Math.Sqrt(Math.Pow((house.X - i.X), 2) + Math.Pow((house.Y - i.Y), 2)));
+            }
+            return specialBuildings.OrderBy(v => Vector2.Distance(v, house));
     }
 
     private static IEnumerable<IEnumerable<Vector2>> FindSpecialBuildingsWithinDistanceFromHouse(
